@@ -92,7 +92,7 @@ function ResultsTable({ servers, settings, onEdit, onRemove }: ResultsTableProps
               <th>Min NUP Required</th>
               <th>Named Users</th>
               <th>NUP Gap</th>
-              <th>Actions</th>
+              <th className="actions-col">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -115,14 +115,14 @@ function ResultsTable({ servers, settings, onEdit, onRemove }: ResultsTableProps
                 <td>{result.minNupRequired}</td>
                 <td>{server.namedUsers ?? '-'}</td>
                 <td>{result.nupGap ?? '-'}</td>
-                <td className="table-actions">
+                <td className="table-actions actions-col">
                   {settings.edition === 'SE2' && server.sockets > 2 && (
                     <span className="warning-badge">SE2 exceeds 2-socket limit</span>
                   )}
-                  <button type="button" onClick={() => onEdit(server)}>
+                  <button type="button" className="table-action-btn" onClick={() => onEdit(server)}>
                     Edit
                   </button>
-                  <button type="button" onClick={() => onRemove(server.id)}>
+                  <button type="button" className="table-action-btn" onClick={() => onRemove(server.id)}>
                     Remove
                   </button>
                 </td>
