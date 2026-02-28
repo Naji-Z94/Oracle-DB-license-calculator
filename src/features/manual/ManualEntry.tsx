@@ -94,12 +94,12 @@ function ManualEntry({ servers, settings, setServers }: ManualEntryProps) {
   }
 
   return (
-    <>
-      <section className="panel">
+    <div className="manual-entry-layout">
+      <section className="panel manual-panel">
         <h2>Manual Entry</h2>
         <p className="muted">Add server rows manually.</p>
 
-        <form className="form-grid" onSubmit={handleSubmit}>
+        <form className="form-grid manual-form-grid" onSubmit={handleSubmit}>
           <div className="field">
             <label htmlFor="serverName">Server Name</label>
             <input
@@ -184,7 +184,7 @@ function ManualEntry({ servers, settings, setServers }: ManualEntryProps) {
       </section>
 
       <ResultsTable servers={servers} settings={settings} onEdit={handleEdit} onRemove={handleRemove} />
-    </>
+    </div>
   )
 }
 
