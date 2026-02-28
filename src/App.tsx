@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import './styles/redwood.css'
 import ManualEntry from './features/manual/ManualEntry'
 import Settings from './features/settings/Settings'
 import UploadExcel from './features/upload/UploadExcel'
@@ -20,39 +21,44 @@ function App() {
   })
 
   return (
-    <main className="app">
-      <header className="app-header">
-        <h1>Oracle DB License Calculator</h1>
+    <div className="app-shell">
+      <header className="global-header">
+        <div className="global-header-inner">
+          <h1 className="brand-title">Oracle DB Licensing Calculator</h1>
+        </div>
+        <div className="redwood-stripe" aria-hidden="true" />
       </header>
 
-      <nav className="tabs" aria-label="Main sections">
-        <button
-          type="button"
-          className={activeTab === 'upload' ? 'tab active' : 'tab'}
-          onClick={() => setActiveTab('upload')}
-        >
-          Upload Excel
-        </button>
-        <button
-          type="button"
-          className={activeTab === 'manual' ? 'tab active' : 'tab'}
-          onClick={() => setActiveTab('manual')}
-        >
-          Manual Entry
-        </button>
-        <button
-          type="button"
-          className={activeTab === 'settings' ? 'tab active' : 'tab'}
-          onClick={() => setActiveTab('settings')}
-        >
-          Settings
-        </button>
-      </nav>
+      <main className="app">
+        <nav className="tabs" aria-label="Main sections">
+          <button
+            type="button"
+            className={activeTab === 'upload' ? 'tab active' : 'tab'}
+            onClick={() => setActiveTab('upload')}
+          >
+            Upload Excel
+          </button>
+          <button
+            type="button"
+            className={activeTab === 'manual' ? 'tab active' : 'tab'}
+            onClick={() => setActiveTab('manual')}
+          >
+            Manual Entry
+          </button>
+          <button
+            type="button"
+            className={activeTab === 'settings' ? 'tab active' : 'tab'}
+            onClick={() => setActiveTab('settings')}
+          >
+            Settings
+          </button>
+        </nav>
 
-      {activeTab === 'upload' && <UploadExcel servers={servers} setServers={setServers} />}
-      {activeTab === 'manual' && <ManualEntry servers={servers} settings={settings} setServers={setServers} />}
-      {activeTab === 'settings' && <Settings settings={settings} setSettings={setSettings} />}
-    </main>
+        {activeTab === 'upload' && <UploadExcel servers={servers} setServers={setServers} />}
+        {activeTab === 'manual' && <ManualEntry servers={servers} settings={settings} setServers={setServers} />}
+        {activeTab === 'settings' && <Settings settings={settings} setSettings={setSettings} />}
+      </main>
+    </div>
   )
 }
 
