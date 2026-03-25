@@ -122,14 +122,11 @@ body {
 }
 
 .manual-entry-layout {
-  display: grid;
-  grid-template-columns: minmax(320px, 380px) minmax(0, 1fr);
-  gap: var(--rw-space-4);
-  align-items: start;
+  display: block;
 }
 
 .manual-entry-layout .results-panel {
-  margin-top: 0;
+  margin-top: var(--rw-space-4);
 }
 
 .manual-form-grid {
@@ -298,10 +295,6 @@ a:focus-visible {
 }
 
 @media (max-width: 768px) {
-  .manual-entry-layout {
-    grid-template-columns: 1fr;
-  }
-
   .manual-form-grid {
     grid-template-columns: 1fr;
   }
